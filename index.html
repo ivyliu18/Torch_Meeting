@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeroPay × Torch Card — Partnership Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ef;
+  --ink: #1a1714;
+  --mid: #5a5550;
+  --faint: #d9d4cb;
+  --faint2: #ede9e2;
+  --gold: #b8935a;
+  --gold2: #d4a96a;
+  --gold-light: rgba(184,147,90,0.12);
+  --green: #2d6a4f;
+  --green-light: rgba(45,106,79,0.10);
+  --amber: #c06000;
+  --amber-light: rgba(192,96,0,0.10);
+  --red: #a83232;
+  --red-light: rgba(168,50,50,0.10);
+  --blue: #2c4a7a;
+  --blue-light: rgba(44,74,122,0.10);
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--faint);
+}
+.hero-left {
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--faint);
+  position: relative;
+}
+.hero-right {
+  background: var(--ink);
+  padding: 80px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,147,90,0.18) 0%, transparent 70%);
+}
+.hero-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 80%);
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 32px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--mid);
+  max-width: 480px;
+  line-height: 1.75;
+  margin-top: 36px;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--faint);
+}
+.hs .lbl {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 5px;
+}
+.hs .val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* right panel */
+.rp-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 32px;
+}
+.rp-verdict {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.rp-verdict span { color: var(--gold2); }
+.rp-bars { display: flex; flex-direction: column; gap: 18px; }
+.rb-row { display: flex; flex-direction: column; gap: 6px; }
+.rb-top { display: flex; justify-content: space-between; align-items: center; }
+.rb-name { font-size: 12px; color: rgba(255,255,255,0.55); }
+.rb-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+.tag-h { background: rgba(168,50,50,0.25); color: #e08080; }
+.tag-mh { background: rgba(192,96,0,0.25); color: #e0a060; }
+.tag-m { background: rgba(180,150,40,0.20); color: #d4c060; }
+.rb-track {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rb-fill { height: 100%; border-radius: 2px; }
+
+/* ── DIVIDER ── */
+.div { height: 1px; background: var(--faint); margin: 0 72px; }
+
+/* ── SECTION ── */
+.sec {
+  padding: 88px 72px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.ey {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.sh {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 52px;
+}
+
+/* ── RESPONSIBILITY TABLE ── */
+.resp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: var(--faint);
+  border: 1px solid var(--faint);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.resp-col {
+  background: var(--white);
+  padding: 36px 30px;
+}
+.resp-col:first-child { background: var(--faint2); }
+.resp-head {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--faint);
+}
+.resp-items { display: flex; flex-direction: column; gap: 12px; }
+.resp-item {
+  font-size: 14px;
+  color: var(--mid);
+  padding: 10px 14px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+.ri-nero { background: var(--blue-light); border-left: 2px solid var(--blue); color: var(--blue); }
+.ri-torch { background: var(--green-light); border-left: 2px solid var(--green); color: var(--green); }
+.ri-shared { background: var(--gold-light); border-left: 2px solid var(--gold); color: var(--amber); }
+
+/* ── RISK GRID ── */
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.rc {
+  background: var(--white);
+  border: 1px solid var(--faint);
+  border-radius: 12px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.rc:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.rc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+}
+.rc-h::before { background: var(--red); }
+.rc-mh::before { background: var(--amber); }
+.rc-m::before { background: var(--gold); }
+.rc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.rc-icon { font-size: 20px; }
+.rc-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.badge-h { background: var(--red-light); color: var(--red); }
+.badge-mh { background: var(--amber-light); color: var(--amber); }
+.badge-m { background: var(--gold-light); color: var(--gold); }
+.rc h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.rc p { font-size: 13px; color: var(--mid); line-height: 1.65; margin-bottom: 18px; }
+.rc-reqs { display: flex; flex-direction: column; gap: 8px; }
+.req {
+  font-size: 12px;
+  color: var(--mid);
+  padding: 8px 12px;
+  background: var(--faint2);
+  border-radius: 5px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 20px;
+}
+.req::before {
+  content: '→';
+  position: absolute;
+  left: 8px;
+  color: var(--gold);
+  font-size: 11px;
+}
+
+/* ── PRICING ── */
+.price-wrap {
+  background: var(--white);
+  border: 1px solid var(--faint);
+  border-radius: 14px;
+  padding: 56px;
+}
+.price-intro {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+.price-rows { display: flex; flex-direction: column; gap: 24px; }
+.pr {
+  display: grid;
+  grid-template-columns: 220px 1fr 72px;
+  align-items: center;
+  gap: 24px;
+}
+.pr-label strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.pr-label span { font-size: 13px; color: var(--mid); }
+.pr-track {
+  height: 36px;
+  background: var(--faint2);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.pr-bar {
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  border-radius: 6px;
+}
+.pr-pct {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: right;
+}
+.price-note {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--amber-light);
+  border: 1px solid rgba(192,96,0,0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.price-note strong { color: var(--amber); }
+
+/* ── SPECIAL WATCH POINTS ── */
+.watch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.wc {
+  background: var(--white);
+  border: 1px solid var(--faint);
+  border-radius: 12px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.wc::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 12px 12px 0 0;
+}
+.wc-red::after { background: var(--red); }
+.wc-amber::after { background: var(--amber); }
+.wc-blue::after { background: var(--blue); }
+.wc-green::after { background: var(--green); }
+.wtag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.wt-r { background: var(--red-light); color: var(--red); }
+.wt-a { background: var(--amber-light); color: var(--amber); }
+.wt-b { background: var(--blue-light); color: var(--blue); }
+.wt-g { background: var(--green-light); color: var(--green); }
+.wc h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
+.wc p { font-size: 14px; color: var(--mid); line-height: 1.7; }
+
+/* ── PHASES ── */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--faint);
+  border: 1px solid var(--faint);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.ph {
+  background: var(--white);
+  padding: 36px 28px;
+}
+.ph:nth-child(1) { background: var(--faint2); }
+.ph-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--faint);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.ph-period {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+.ph h3 { font-size: 15px; font-weight: 600; color: var(--gold); margin-bottom: 16px; }
+.ph ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ph ul li {
+  font-size: 13px;
+  color: var(--mid);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.ph ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold2);
+  font-size: 18px;
+  line-height: 1.1;
+}
+.ph-milestone {
+  margin-top: 20px;
+  padding: 10px 14px;
+  background: var(--gold-light);
+  border: 1px solid rgba(184,147,90,0.25);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--amber);
+  line-height: 1.5;
+}
+
+/* ── MONITORING TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--faint);
+}
+th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 16px 22px;
+  text-align: left;
+  border-bottom: 1px solid var(--faint);
+  background: var(--faint2);
+}
+td { padding: 18px 22px; font-size: 14px; border-bottom: 1px solid var(--faint); }
+tbody tr:last-child td { border-bottom: none; }
+td:first-child { font-weight: 600; color: var(--ink); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; vertical-align: middle; }
+.dg { background: var(--green); }
+.dy { background: var(--amber); }
+.dr { background: var(--red); }
+.tn { margin-top: 16px; font-size: 13px; color: var(--mid); line-height: 1.7; }
+
+/* ── RECOMMENDATION ── */
+.rec-block {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.rec-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 100%);
+}
+.rec-block::after {
+  content: 'NP';
+  position: absolute;
+  bottom: -20px; right: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+.rec-ey {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 16px;
+}
+.rec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+.rec-title span { color: var(--gold2); font-style: italic; }
+.rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.ri2 { display: flex; gap: 18px; }
+.rn {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(184,147,90,0.18);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 44px;
+}
+.rb2 h4 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.rb2 p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+/* ── QUESTIONS ── */
+.q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.qc {
+  background: var(--white);
+  border: 1px solid var(--faint);
+  border-radius: 12px;
+  padding: 28px;
+}
+.q-head {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--faint);
+}
+.q-list { display: flex; flex-direction: column; gap: 10px; }
+.q-item {
+  font-size: 13px;
+  color: var(--mid);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.55;
+}
+.q-item::before { content: '?'; position: absolute; left: 0; color: var(--gold); font-weight: 700; font-size: 12px; top: 1px; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 36px 72px;
+  border-top: 1px solid var(--faint);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--mid);
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.footer-logo span { color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+.hero-eyebrow { animation-delay: 0.05s; }
+.hero-title { animation-delay: 0.15s; }
+.hero-sub { animation-delay: 0.25s; }
+.hero-stats { animation-delay: 0.4s; }
+.hero-right > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+.rp-label { animation-delay: 0.3s; }
+.rp-verdict { animation-delay: 0.45s; }
+.rp-bars { animation-delay: 0.6s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { border-top: 1px solid rgba(255,255,255,0.1); }
+  .hero-left, .hero-right { padding: 48px 32px; }
+  .sec { padding: 56px 32px; }
+  .div { margin: 0 32px; }
+  .risk-grid, .watch-grid, .rec-grid, .q-grid { grid-template-columns: 1fr; }
+  .resp-grid, .phases { grid-template-columns: 1fr; }
+  .pr { grid-template-columns: 1fr; gap: 8px; }
+  footer { padding: 28px 32px; flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-eyebrow">Partnership Framework · March 2026</div>
+      <div class="hero-title">NeroPay<br><em>×</em> Torch<br>Card</div>
+      <p class="hero-sub">A structured framework for establishing a white label acquiring partnership — built on clear responsibility allocation, robust governance, and a phased path to full operation.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="lbl">Structure</div><div class="val">White Label Acquiring</div></div>
+      <div class="hs"><div class="lbl">Initial Market</div><div class="val">United Kingdom</div></div>
+      <div class="hs"><div class="lbl">Recommendation</div><div class="val" style="color:var(--amber)">Conditional Approval</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="rp-label">Partnership Risk Assessment</div>
+    <div class="rp-verdict">Assessment indicates <span>medium–high overall risk</span> — manageable with the right structure.</div>
+    <div class="rp-bars">
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Regulatory &amp; Compliance</span><span class="rb-tag tag-h">High</span></div><div class="rb-track"><div class="rb-fill" style="width:90%;background:var(--red);opacity:.8"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Financial &amp; Credit</span><span class="rb-tag tag-h">High</span></div><div class="rb-track"><div class="rb-fill" style="width:90%;background:var(--red);opacity:.8"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Merchant Underwriting &amp; Fraud</span><span class="rb-tag tag-h">High</span></div><div class="rb-track"><div class="rb-fill" style="width:90%;background:var(--red);opacity:.8"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Technical &amp; Operational</span><span class="rb-tag tag-mh">Med–High</span></div><div class="rb-track"><div class="rb-fill" style="width:72%;background:var(--amber);opacity:.9"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Contractual &amp; Legal</span><span class="rb-tag tag-mh">Med–High</span></div><div class="rb-track"><div class="rb-fill" style="width:72%;background:var(--amber);opacity:.9"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Reputational &amp; Brand</span><span class="rb-tag tag-m">Medium</span></div><div class="rb-track"><div class="rb-fill" style="width:52%;background:var(--gold);opacity:.9"></div></div></div>
+      <div class="rb-row"><div class="rb-top"><span class="rb-name">Operational Scalability</span><span class="rb-tag tag-m">Medium</span></div><div class="rb-track"><div class="rb-fill" style="width:52%;background:var(--gold);opacity:.9"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ RESPONSIBILITY -->
+<section class="sec">
+  <div class="ey">Partnership Structure</div>
+  <div class="sh">How Responsibilities Are Allocated</div>
+  <div class="resp-grid">
+    <div class="resp-col">
+      <div class="resp-head">Area</div>
+      <div class="resp-items">
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Payment Processing</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Branding &amp; Interface</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Technical Support</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Terminal Management</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Merchant Acquisition</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">Compliance Framework</div>
+        <div class="resp-item" style="background:none;border:none;padding-left:0;font-weight:600;color:var(--ink)">AML / KYC / KYB</div>
+      </div>
+    </div>
+    <div class="resp-col">
+      <div class="resp-head" style="color:var(--blue)">NeroPay</div>
+      <div class="resp-items">
+        <div class="resp-item ri-nero">Core acquiring &amp; processing rails</div>
+        <div class="resp-item ri-nero">White label licence provider</div>
+        <div class="resp-item ri-nero">Core platform stability only</div>
+        <div class="resp-item" style="background:var(--faint2);border-left:none;color:var(--mid);font-style:italic">Not responsible</div>
+        <div class="resp-item" style="background:var(--faint2);border-left:none;color:var(--mid);font-style:italic">Not responsible</div>
+        <div class="resp-item ri-shared">Oversight &amp; final approval rights</div>
+        <div class="resp-item ri-shared">Oversight; veto on high-risk categories</div>
+      </div>
+    </div>
+    <div class="resp-col">
+      <div class="resp-head" style="color:var(--green)">Torch Card</div>
+      <div class="resp-items">
+        <div class="resp-item ri-torch">Merchant-facing interface &amp; UX</div>
+        <div class="resp-item ri-torch">Full brand control</div>
+        <div class="resp-item ri-torch">Merchant &amp; end-user first-line support</div>
+        <div class="resp-item ri-torch">All pricing &amp; warranty responsibility</div>
+        <div class="resp-item ri-torch">Merchant onboarding &amp; relationships</div>
+        <div class="resp-item ri-torch">Operational compliance execution</div>
+        <div class="resp-item ri-torch">First-line KYC/KYB on merchants &amp; NGOs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ RISK AREAS -->
+<section class="sec">
+  <div class="ey">Risk Analysis</div>
+  <div class="sh">Six Key Partnership Risks &amp; Requirements</div>
+  <div class="risk-grid">
+    <div class="rc rc-h">
+      <div class="rc-top"><div class="rc-icon">⚖️</div><div class="rc-badge badge-h">High</div></div>
+      <h3>Regulatory &amp; Compliance</h3>
+      <p>PCI DSS, KYC/AML, and safeguarding obligations split across two parties requires precise definition of who bears responsibility at each stage.</p>
+      <div class="rc-reqs">
+        <div class="req">Clear RACI for PCI DSS, KYC/KYB, AML/CTF ownership</div>
+        <div class="req">Quarterly joint compliance forum between both parties</div>
+        <div class="req">Torch to maintain ISO 27001 + PCI DSS certification</div>
+      </div>
+    </div>
+    <div class="rc rc-h">
+      <div class="rc-top"><div class="rc-icon">💷</div><div class="rc-badge badge-h">High</div></div>
+      <h3>Financial &amp; Credit</h3>
+      <p>Chargeback liability, refund allocation, and Torch's financial resilience as an early-stage venture must be clearly addressed before signing.</p>
+      <div class="rc-reqs">
+        <div class="req">Audited financials, capital structure, and liquidity evidence required</div>
+        <div class="req">Minimum monthly transaction volume or revenue commitments</div>
+        <div class="req">Reserve fund for chargebacks and potential scheme penalties</div>
+      </div>
+    </div>
+    <div class="rc rc-h">
+      <div class="rc-top"><div class="rc-icon">🔍</div><div class="rc-badge badge-h">High</div></div>
+      <h3>Merchant Underwriting &amp; Fraud</h3>
+      <p>Merchant quality directly affects scheme exposure, AML risk, and both parties' reputations. Underwriting standards need contractual grounding.</p>
+      <div class="rc-reqs">
+        <div class="req">Minimum KYC/KYB standards and prohibited merchant lists defined in contract</div>
+        <div class="req">Chargeback threshold &lt;1%; NeroPay veto rights on high-risk merchants</div>
+        <div class="req">Mandatory 3D Secure and risk-scoring tools for all Torch merchants</div>
+      </div>
+    </div>
+    <div class="rc rc-mh">
+      <div class="rc-top"><div class="rc-icon">⚙️</div><div class="rc-badge badge-mh">Med–High</div></div>
+      <h3>Technical &amp; Operational</h3>
+      <p>Full technical support and terminal management transferring to Torch requires validated capability and a structured transition — not a single cut-over.</p>
+      <div class="rc-reqs">
+        <div class="req">Technical due diligence on team, infrastructure, and DR/BCP plans</div>
+        <div class="req">3–6 month phased responsibility transfer with readiness gates</div>
+        <div class="req">NeroPay retains emergency intervention rights throughout</div>
+      </div>
+    </div>
+    <div class="rc rc-mh">
+      <div class="rc-top"><div class="rc-icon">📄</div><div class="rc-badge badge-mh">Med–High</div></div>
+      <h3>Contractual &amp; Legal</h3>
+      <p>UK–Turkey cross-border complexity, IP ownership, and exit/transition clarity all require specialist legal input and precise drafting before signing.</p>
+      <div class="rc-reqs">
+        <div class="req">Full MSA with responsibility matrices, SLA schedules, and IP clauses</div>
+        <div class="req">English law + arbitration as governing forum</div>
+        <div class="req">Annual contract review with defined re-pricing mechanisms</div>
+      </div>
+    </div>
+    <div class="rc rc-m">
+      <div class="rc-top"><div class="rc-icon">🏷️</div><div class="rc-badge badge-m">Medium</div></div>
+      <h3>Reputational &amp; Brand</h3>
+      <p>End-users may not distinguish between Torch's branding and NeroPay's underlying rails. Torch's support quality directly shapes perception of the whole stack.</p>
+      <div class="rc-reqs">
+        <div class="req">Brand usage rules and NeroPay attribution standards in agreement</div>
+        <div class="req">KPIs on Torch support performance with regular reporting</div>
+        <div class="req">NeroPay retains right to brand-distance in serious reputational events</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ PRICING -->
+<section class="sec">
+  <div class="ey">Fee Structure</div>
+  <div class="sh">Understanding the Pricing Architecture</div>
+  <div class="price-wrap">
+    <p class="price-intro">The dual-pricing structure separates NeroPay's platform infrastructure cost (capped at 3% for non-Torch card transactions) from Torch's own merchant pricing. Understanding how these layers interact — and how the total fee is perceived by merchants — is important for both parties to manage together.</p>
+    <div class="price-rows">
+      <div class="pr">
+        <div class="pr-label"><strong>Industry Standard MDR</strong><span>Blended UK SME card processing</span></div>
+        <div class="pr-track"><div class="pr-bar" style="width:20%;background:var(--green)">Interchange + Scheme + PSP</div></div>
+        <div class="pr-pct" style="color:var(--green)">~2%</div>
+      </div>
+      <div class="pr">
+        <div class="pr-label"><strong>NeroPay Cap</strong><span>Non-Torch card transactions</span></div>
+        <div class="pr-track"><div class="pr-bar" style="width:30%;background:var(--blue)">NeroPay Platform Rails</div></div>
+        <div class="pr-pct" style="color:var(--blue)">3%</div>
+      </div>
+      <div class="pr">
+        <div class="pr-label"><strong>Torch Card Total Fee</strong><span>Merchant-facing all-in price</span></div>
+        <div class="pr-track">
+          <div style="position:absolute;left:0;width:30%;height:100%;background:var(--blue);display:flex;align-items:center;padding:0 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);border-radius:6px 0 0 6px">NeroPay 3%</div>
+          <div style="position:absolute;left:30%;width:70%;height:100%;background:var(--red);display:flex;align-items:center;padding:0 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.8)">Torch Margin + Donation Component ~7%</div>
+        </div>
+        <div class="pr-pct" style="color:var(--red)">~10%</div>
+      </div>
+    </div>
+    <div class="price-note">
+      <strong>Key discussion point:</strong> When merchants see a combined fee, they will not distinguish between NeroPay's infrastructure layer (market-normal) and Torch's overlay. Both parties have a shared interest in clear fee communication to merchants, and in ensuring the donation narrative is accurate, auditable, and legally compliant under UK cause-related marketing guidance.
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ WATCH POINTS -->
+<section class="sec">
+  <div class="ey">Model-Specific Considerations</div>
+  <div class="sh">Four Areas Unique to This Partnership</div>
+  <div class="watch-grid">
+    <div class="wc wc-red">
+      <span class="wtag wt-r">Charity Governance</span>
+      <h3>Donation Flow &amp; Transparency</h3>
+      <p>The collect-then-donate structure — where Torch pools merchant fees and forwards amounts to NGOs — requires formal Commercial Participation Agreements, quarterly donation reporting, and independent audit rights. UK charity regulation expects clear public disclosure of how much, when, and to whom donations are made.</p>
+    </div>
+    <div class="wc wc-amber">
+      <span class="wtag wt-a">AML / CTF</span>
+      <h3>NGO Payment Flows</h3>
+      <p>Pooled funds forwarded to NGOs across jurisdictions creates heightened AML/CTF sensitivity. Both parties need to demonstrate to Stripe and regulators that they understand fund flows end-to-end — including the donation component — and have appropriate monitoring in place.</p>
+    </div>
+    <div class="wc wc-amber">
+      <span class="wtag wt-a">UK Regulation</span>
+      <h3>Consumer Protection &amp; Surcharge Rules</h3>
+      <p>UK surcharge regulations and ASA advertising guidance both apply to how Torch's fees are communicated to merchants and cardholders. Clear, non-misleading disclosure of pricing structure and donation mechanics is a legal requirement, not just good practice.</p>
+    </div>
+    <div class="wc wc-blue">
+      <span class="wtag wt-b">Upstream Dependency</span>
+      <h3>Stripe &amp; Card Scheme Obligations</h3>
+      <p>NeroPay operates under Stripe's Scheme Services Agreement. Elevated chargebacks, consumer-harm concerns, or regulatory scrutiny flowing from Torch-level issues could prompt Stripe to review NeroPay's third-party risk posture. Visa/Mastercard rules on honest merchant pricing apply throughout the chain.</p>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ PHASES -->
+<section class="sec">
+  <div class="ey">Implementation Roadmap</div>
+  <div class="sh">A Four-Phase Path to Full Operation</div>
+  <div class="phases">
+    <div class="ph">
+      <div class="ph-num">01</div>
+      <div class="ph-period">Months 1–3</div>
+      <h3>Preparation &amp; Integration</h3>
+      <ul>
+        <li>Complete all due diligence workstreams</li>
+        <li>Sign partnership agreement</li>
+        <li>API, dashboard &amp; UAT testing</li>
+        <li>Security &amp; compliance reviews</li>
+        <li>SOPs and joint support setup</li>
+      </ul>
+      <div class="ph-milestone">✓ UAT completed &amp; passed</div>
+    </div>
+    <div class="ph">
+      <div class="ph-num">02</div>
+      <div class="ph-period">Months 4–6</div>
+      <h3>Pilot Operation</h3>
+      <ul>
+        <li>First 10–20 merchants only</li>
+        <li>Volume cap: £500K / month</li>
+        <li>Intensive joint monitoring</li>
+        <li>SLA &amp; reconciliation validation</li>
+      </ul>
+      <div class="ph-milestone">✓ Uptime ≥99.5% · CSAT &gt;4/5</div>
+    </div>
+    <div class="ph">
+      <div class="ph-num">03</div>
+      <div class="ph-period">Months 7–12</div>
+      <h3>Scaled Operation</h3>
+      <ul>
+        <li>Gradual merchant ramp-up</li>
+        <li>Full support transfer to Torch</li>
+        <li>Monthly performance reviews</li>
+        <li>Ongoing optimisation</li>
+      </ul>
+      <div class="ph-milestone">✓ £2M vol · 100+ merchants · CB &lt;0.8%</div>
+    </div>
+    <div class="ph">
+      <div class="ph-num">04</div>
+      <div class="ph-period">Month 13+</div>
+      <h3>Full Operation</h3>
+      <ul>
+        <li>Torch independent, steady-state</li>
+        <li>NeroPay: platform oversight only</li>
+        <li>New market expansion planning</li>
+        <li>Annual contract review</li>
+      </ul>
+      <div class="ph-milestone">✓ CB &lt;0.5% · CSAT &gt;4.2/5</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ SLA TABLE -->
+<section class="sec">
+  <div class="ey">Service Level Agreement</div>
+  <div class="sh">Proposed SLA Framework</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Scenario</th>
+        <th>Response Target</th>
+        <th>Resolution Target</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>P1 — Critical</td><td style="color:var(--mid)">Full platform outage</td><td style="color:var(--red)">15 minutes</td><td style="color:var(--red)">4 hours</td></tr>
+      <tr><td>P2 — Major</td><td style="color:var(--mid)">Significant degradation</td><td style="color:var(--amber)">2 hours</td><td style="color:var(--amber)">24 hours</td></tr>
+      <tr><td>P3 — Minor</td><td style="color:var(--mid)">Non-critical issue</td><td style="color:var(--mid)">8 hours</td><td style="color:var(--mid)">5 business days</td></tr>
+      <tr><td>P4 — Info / Feature</td><td style="color:var(--mid)">Enhancement requests</td><td style="color:var(--mid)">24 hours</td><td style="color:var(--mid)">Per roadmap</td></tr>
+    </tbody>
+  </table>
+  <div class="tn" style="margin-top:24px">
+    <strong>Uptime target:</strong> 99.9% monthly (max downtime: 43 minutes) &nbsp;·&nbsp;
+    <strong>API response:</strong> &lt;500ms (95th percentile) &nbsp;·&nbsp;
+    <strong>Transaction processing:</strong> &lt;2 seconds
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ MONITORING -->
+<section class="sec">
+  <div class="ey">Ongoing Governance</div>
+  <div class="sh">Live Monitoring Thresholds</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th><span class="dot dg"></span>Green — Normal</th>
+        <th><span class="dot dy"></span>Amber — Investigate</th>
+        <th><span class="dot dr"></span>Red — Escalate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Chargeback Rate</td><td style="color:var(--green)">&lt; 0.5%</td><td style="color:var(--amber)">0.5% – 1.0%</td><td style="color:var(--red)">&gt; 1.0%</td></tr>
+      <tr><td>Platform Availability</td><td style="color:var(--green)">&gt; 99.9%</td><td style="color:var(--amber)">99.5% – 99.9%</td><td style="color:var(--red)">&lt; 99.5%</td></tr>
+      <tr><td>Monthly Merchant Churn</td><td style="color:var(--green)">&lt; 2%</td><td style="color:var(--amber)">2% – 5%</td><td style="color:var(--red)">&gt; 5%</td></tr>
+      <tr><td>Support Response Time</td><td style="color:var(--green)">&lt; 2 hrs</td><td style="color:var(--amber)">2 – 8 hrs</td><td style="color:var(--red)">&gt; 8 hrs</td></tr>
+      <tr><td>Suspicious Transaction Ratio</td><td style="color:var(--green)">&lt; 0.1%</td><td style="color:var(--amber)">0.1% – 0.5%</td><td style="color:var(--red)">&gt; 0.5%</td></tr>
+    </tbody>
+  </table>
+  <div class="tn"><strong style="color:var(--amber)">Amber:</strong> Weekly report + corrective-action plan required &nbsp;·&nbsp; <strong style="color:var(--red)">Red:</strong> Emergency governance meeting, pause new merchant onboarding, daily status reporting until resolved</div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ QUESTIONS -->
+<section class="sec">
+  <div class="ey">Due Diligence</div>
+  <div class="sh">Questions for Today's Discussion</div>
+  <div class="q-grid">
+    <div class="qc">
+      <div class="q-head">Financial</div>
+      <div class="q-list">
+        <div class="q-item">Can you share audited financials for 2024–2025 and capital structure details?</div>
+        <div class="q-item">What are your projected monthly transaction volumes in Year 1?</div>
+        <div class="q-item">What reserves or liquidity buffers are in place for chargebacks and refunds?</div>
+        <div class="q-item">What insurance coverage does Torch currently hold?</div>
+      </div>
+    </div>
+    <div class="qc">
+      <div class="q-head">Technical</div>
+      <div class="q-list">
+        <div class="q-item">What is the size and structure of your technical team?</div>
+        <div class="q-item">What does your disaster recovery and BCP currently look like?</div>
+        <div class="q-item">Do you hold any security certifications (ISO 27001, PCI DSS)?</div>
+        <div class="q-item">What support tooling and ticketing systems are in place?</div>
+      </div>
+    </div>
+    <div class="qc">
+      <div class="q-head">Compliance &amp; Charity Model</div>
+      <div class="q-list">
+        <div class="q-item">What KYC/KYB process do you apply to new merchants?</div>
+        <div class="q-item">Do you have formal Commercial Participation Agreements with NGO partners?</div>
+        <div class="q-item">How are donation flows reconciled and reported today?</div>
+        <div class="q-item">What are your historical chargeback and fraud loss metrics?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ═══════════════════════════════════════════════════════ RECOMMENDATION -->
+<section class="sec">
+  <div class="rec-block">
+    <div class="rec-ey">NeroPay Position</div>
+    <div class="rec-title">We are ready to proceed —<br><span>on the right terms.</span></div>
+    <div class="rec-grid">
+      <div class="ri2"><div class="rn">01</div><div class="rb2"><h4>Complete Due Diligence First</h4><p>Financial statements, technical architecture review, compliance certifications, and legal history must all be satisfactorily resolved before signing.</p></div></div>
+      <div class="ri2"><div class="rn">02</div><div class="rb2"><h4>Robust Master Services Agreement</h4><p>Crystal-clear allocation of PCI DSS, KYC/AML, fraud, chargebacks, IP ownership, and exit obligations — drafted with specialist legal counsel.</p></div></div>
+      <div class="ri2"><div class="rn">03</div><div class="rb2"><h4>NeroPay Retains Key Control Points</h4><p>Veto rights on high-risk merchants, audit rights on compliance, emergency suspension capability, and brand protection levers.</p></div></div>
+      <div class="ri2"><div class="rn">04</div><div class="rb2"><h4>Donation Governance Requirements</h4><p>Formal CPAs with NGOs, quarterly donation reports, contractual audit rights, and full indemnity for discrepancies in donation claims.</p></div></div>
+      <div class="ri2"><div class="rn">05</div><div class="rb2"><h4>Phased Rollout — No Single Cut-Over</h4><p>3–6 month phased transfer with readiness gates. Pilot capped at 20 merchants and £500K/month before scaling to full operation.</p></div></div>
+      <div class="ri2"><div class="rn">06</div><div class="rb2"><h4>Live Risk Dashboard Before Go-Live</h4><p>Monitoring framework live before first merchant is onboarded. Amber triggers investigation; red triggers governance escalation.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-logo">Nero<span>Pay</span></div>
+  <span>Partnership Framework · NeroPay × Torch Card · March 2026</span>
+  <span>Prepared for external discussion</span>
+</footer>
+
+</body>
+</html>
